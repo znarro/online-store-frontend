@@ -11,8 +11,8 @@ async function getProducts(url) {
     const response = await fetch(url)
     const data = await response.json()
     showProducts(data)
-  } catch (error) {
-    // Catch errors
+  } catch (err) {
+    console.error(`${err.name}: ${err.message}`)
   }
 }
 
