@@ -24,8 +24,11 @@ function showProducts(products) {
                 }" class="card-img-top" alt="${item.name}" />
                 <div class="card-body">
                     <h5 class="card-title text-center">${item.name.toUpperCase()}</h5>
-                    <div class="d-flex justify-content-between">
-                        <p class="card-text">${item.price}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="card-text">${new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                        }).format(item.price)}</p>
                         <button
                             type="button"
                             class="btn btn-secondary btn-sm"

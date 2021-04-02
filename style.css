@@ -41,11 +41,16 @@ div.card-body {
     grid-area: info;
     width: 90%;
     border-top: 1px solid rgb(222, 222, 222);
+    padding: 0.8rem;
 }
 
 h5.card-title {
     font-size: 0.8rem;
     height: 30px;
+}
+
+p.card-text {
+    font-size: 1rem;
 }
 
 button.btn.btn-secondary {
