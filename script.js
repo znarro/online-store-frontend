@@ -10,7 +10,6 @@ async function getProducts(url) {
     try {
         const response = await fetch(url)
         const data = await response.json()
-        console.log(data)
         showProducts(data)
     } catch (error) {
         // Catch errors
@@ -18,6 +17,7 @@ async function getProducts(url) {
 }
 
 function showProducts(products) {
+    // Clear products first
     productsContainer.innerHTML = ''
 
     products.forEach((item) => {
@@ -55,4 +55,11 @@ form.addEventListener('submit', (e) => {
     query = query.value.toLowerCase()
 
     getProducts(BASE_URL + `?q=${query}`)
+})
+
+// Get all products when clear search input
+form.addEventListener('search', (e) => {
+    if (e.target.value === '') {
+        getProducts(BASE_URL)
+    }
 })
