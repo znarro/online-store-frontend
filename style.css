@@ -1,0 +1,33 @@
+html body {
+    background-color: hsla(0, 0%, 62%, 0.4);
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 60px 1fr 60px;
+    grid-template-areas:
+        'header'
+        'content'
+        'footer';
+}
+
+/* Header */
+.header {
+    grid-area: header;
+}
+
+/* Main container */
+.content {
+    grid-area: content;
+}
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
