@@ -1,76 +1,86 @@
 html body {
-    background-color: hsla(0, 0%, 62%, 0.4);
+  background-color: hsla(0, 0%, 62%, 0.4);
 }
 
 body {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 60px 1fr 60px;
-    grid-template-areas:
-        'header'
-        'content'
-        'footer';
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60px 1fr 60px;
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
 }
 
 /* Header */
 .header {
-    grid-area: header;
+  grid-area: header;
 }
 
 /* Main container */
 .content {
-    grid-area: content;
+  grid-area: content;
+}
+
+#products {
+  justify-content: center;
 }
 
 article.card {
-    border-radius: 8px;
-    box-shadow: 5px 3px 7px -2px rgba(0, 0, 0, 0.79);
-    display: grid;
-    grid-template-rows: 1fr 100px;
-    grid-template-areas: 'img' 'info';
-    justify-items: center;
-    align-items: center;
+  border-radius: 8px;
+  box-shadow: 5px 3px 7px -2px rgba(0, 0, 0, 0.79);
+  display: grid;
+  grid-template-rows: 1fr 100px;
+  grid-template-areas: 'img' 'info';
+  justify-items: center;
+  align-items: center;
 }
 
 img.card-img-top {
-    grid-area: img;
-    padding: 20px;
+  grid-area: img;
+  padding: 20px;
 }
 
 div.card-body {
-    grid-area: info;
-    width: 90%;
-    border-top: 1px solid rgb(222, 222, 222);
-    padding: 0.8rem;
+  grid-area: info;
+  width: 90%;
+  border-top: 1px solid rgb(222, 222, 222);
+  padding: 0.8rem;
 }
 
 h5.card-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    height: 30px;
-    margin-bottom: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 30px;
+  margin-bottom: 15px;
 }
 
 p.card-text {
-    font-size: 1rem;
-    font-weight: 300;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 button.btn.btn-secondary {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .icon {
-    font-size: 1.2rem;
-    color: white;
+  font-size: 1.2rem;
+  color: white;
+}
+
+h2.not-found {
+  width: 50%;
+  text-align: center;
+  margin-top: 200px;
 }
 
 /* Footer */
 .footer {
-    grid-area: footer;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
-    text-align: center;
+  grid-area: footer;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+  text-align: center;
 }
