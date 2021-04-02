@@ -18,6 +18,8 @@ async function getProducts(url) {
 }
 
 function showProducts(products) {
+    productsContainer.innerHTML = ''
+
     products.forEach((item) => {
         const product = document.createElement('div')
         product.classList.add('product', 'col')
