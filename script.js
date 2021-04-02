@@ -1,10 +1,14 @@
 const productsContainer = document.getElementById('products')
+const form = document.getElementById('form')
 
-let BASE_URL = 'http://127.0.0.1:3000'
+let BASE_URL = 'http://127.0.0.1:3000/products'
 
-async function getProducts() {
+// Initially get all the products
+getProducts(BASE_URL)
+
+async function getProducts(url) {
     try {
-        const response = await fetch(`${BASE_URL}/products`)
+        const response = await fetch(url)
         const data = await response.json()
         console.log(data)
         showProducts(data)
@@ -43,4 +47,10 @@ function showProducts(products) {
     })
 }
 
-getProducts()
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let { query } = e.target.elements
+    query = query.value.toLowerCase()
+
+    getProducts(BASE_URL + `?q=${query}`)
+})
