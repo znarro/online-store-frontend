@@ -19,9 +19,11 @@ function showProducts(products) {
         product.classList.add('product', 'col')
         product.innerHTML = `
             <article class="card h-100">
-                <img src="${item.url_image}" class="card-img-top" alt="${item.name}" />
+                <img src="${
+                    item.url_image || '/image-not-found.png'
+                }" class="card-img-top" alt="${item.name}" />
                 <div class="card-body">
-                    <h5 class="card-title text-center">${item.name}</h5>
+                    <h5 class="card-title text-center">${item.name.toUpperCase()}</h5>
                     <div class="d-flex justify-content-between">
                         <p class="card-text">${item.price}</p>
                         <button
