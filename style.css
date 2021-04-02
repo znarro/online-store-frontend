@@ -23,6 +23,15 @@ body {
     grid-area: content;
 }
 
+button.btn.btn-secondary {
+    border-radius: 50%;
+}
+
+.icon {
+    font-size: 1.2rem;
+    color: white;
+}
+
 /* Footer */
 .footer {
     grid-area: footer;
