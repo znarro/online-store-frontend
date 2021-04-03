@@ -1,5 +1,6 @@
 const productsContainer = document.getElementById('products')
 const form = document.getElementById('form')
+const loader = document.getElementById('loader')
 
 let BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com/products'
 
@@ -8,18 +9,20 @@ getProducts(BASE_URL)
 
 async function getProducts(url) {
   try {
+    // Clear products first
+    productsContainer.innerHTML = ''
+    loader.hidden = false
     const response = await fetch(url)
     const data = await response.json()
     showProducts(data)
   } catch (err) {
     console.error(`${err.name}: ${err.message}`)
+  } finally {
+    loader.hidden = true
   }
 }
 
 function showProducts(products) {
-  // Clear products first
-  productsContainer.innerHTML = ''
-
   if (products.length > 0) {
     products.forEach((item) => {
       const product = document.createElement('div')
