@@ -1,7 +1,7 @@
 const productsContainer = document.getElementById('products')
 const form = document.getElementById('form')
 
-let BASE_URL = 'http://127.0.0.1:3000/products'
+let BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com/products'
 
 // Initially get all the products
 getProducts(BASE_URL)
