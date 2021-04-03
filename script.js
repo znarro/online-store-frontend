@@ -1,5 +1,6 @@
 const productsContainer = document.getElementById('products')
 const form = document.getElementById('form')
+const loader = document.getElementById('loader')
 
 let BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com/products'
 
