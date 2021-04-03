@@ -27,7 +27,7 @@ function showProducts(products) {
       product.innerHTML = `
         <article class="card h-100">
           <img src="${
-            item.url_image || '/src/public/image-not-found.png'
+            item.url_image || '/image-not-found.png'
           }" class="card-img-top" alt="${item.name}" />
           <div class="card-body">
             <h5 class="card-title text-center">${item.name.toUpperCase()}</h5>
