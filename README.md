@@ -8,7 +8,7 @@ The backend for this project was made in Rails, and you can access the repo [her
 
 Rails API is hosted in Heroku, [here](https://enigmatic-shelf-95625.herokuapp.com/).
 
-### Instalation
+### Installation
 
 - First, clone the repository:
 
@@ -33,7 +33,7 @@ Rails API is hosted in Heroku, [here](https://enigmatic-shelf-95625.herokuapp.co
 
 The client side was made with vanilla JavaScript and Bootstrap5 components.
 
-### Instalation
+### Installation
 
 - First, clone this repository:
 
