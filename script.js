@@ -69,14 +69,23 @@ async function getCategories(url) {
     categories.innerHTML = ''
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data)
     listCategories(data)
   } catch (err) {
     console.error(`${err.name}: ${err.message}`)
   }
 }
 
+// To create dinamically the dropdown category items
 function listCategories(categories) {
+  const allCategories = document.createElement('li')
+  allCategories.innerHTML = `
+    <a class="dropdown-item category" id="category-all">Todas</a>
+  `
+  allCategories.addEventListener('click', () => {
+    getProducts(BASE_URL + '/products')
+  })
+  categoriesContainer.append(allCategories)
+
   categories.forEach((category) => {
     const categoryName = category.name[0].toUpperCase() + category.name.slice(1)
     const categoryItem = document.createElement('li')
@@ -97,21 +106,9 @@ form.addEventListener('submit', (e) => {
   getProducts(BASE_URL + `/products?q=${query}`)
 })
 
-// Get all products when clear search input
+// To get all products when the user clears the search input
 form.addEventListener('search', (e) => {
   if (e.target.value === '') {
     getProducts(BASE_URL + '/products')
   }
 })
-
-// Hacer un fetch de categories
-// obtener los nombres, luego iterarlos
-// por cada uno crear un li para el select
-
-// categories.forEach((category) => {
-//   console.log(category)
-// })
-
-// drop.addEventListener('click', () => {
-//   getProducts(BASE_URL + `products?category_id=3`)
-// })
