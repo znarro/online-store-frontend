@@ -85,7 +85,7 @@ p.card-text {
   font-weight: 300;
 }
 
-button.btn.btn-secondary {
+button.btn.btn-secondary.btn-sm {
   border-radius: 50%;
 }
 
