@@ -25,6 +25,14 @@ body {
   margin-left: 1rem;
 }
 
+.menu {
+  display: flex;
+}
+
+.menu .dropdown {
+  margin-right: 0.5rem;
+}
+
 /* Loader */
 .loader {
   position: fixed;
