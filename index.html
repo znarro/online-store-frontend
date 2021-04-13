@@ -61,7 +61,14 @@
               </button>
             </form>
 
-            <button type="button" class="btn btn-primary cart-button">
+            <!-- Button trigger modal -->
+            <button
+              id="cart"
+              type="button"
+              class="btn btn-primary cart-button"
+              data-bs-toggle="modal"
+              data-bs-target="#cartModal"
+            >
               <i class="icon bi bi-cart-plus"></i>
             </button>
           </div>
@@ -87,6 +94,47 @@
     <!-- Loader -->
     <div class="loader" id="loader">
       <img src="loader.svg" alt="Loading" />
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Mis compras</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ul id="cart-items">
+              <li class="d-flex justify-content-between mt-3">
+                <span class="h5">TOTAL A PAGAR:</span>
+                <span class="h5" id="bill">0</span>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary">Comprar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

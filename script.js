@@ -1,9 +1,13 @@
 const productsContainer = document.getElementById('products')
+const categoriesContainer = document.getElementById('categories')
 const form = document.getElementById('form')
 const loader = document.getElementById('loader')
-const categoriesContainer = document.getElementById('categories')
+const cartBtn = document.getElementById('cart')
+const cartItemsContainer = document.getElementById('cart-items')
+const bill = document.getElementById('bill')
+let total = 0
 
-// const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com/products'
+// const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com'
 const BASE_URL = 'http://localhost:3000'
 
 // Initially get all the products
@@ -121,7 +125,17 @@ form.addEventListener('search', (e) => {
 
 function addToCart(id) {
   const productItem = document.getElementById(`product-${id}`)
-  console.log(productItem.dataset.name)
-  console.log(productItem.dataset.price)
-  // TODO: modal
+  const { name, price } = productItem.dataset
+
+  const cartItem = document.createElement('li')
+  cartItem.innerHTML = `
+    <li class="d-flex justify-content-between">
+      <span>${name}</span>
+      <span>${price}</span>
+    </li>
+  `
+  cartItemsContainer.prepend(cartItem)
+
+  total += parseFloat(price)
+  bill.innerHTML = total
 }
