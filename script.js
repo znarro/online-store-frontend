@@ -32,7 +32,12 @@ function showProducts(products) {
       const product = document.createElement('div')
       product.classList.add('product', 'col')
       product.innerHTML = `
-        <article class="card h-100">
+        <article 
+          class="card h-100" 
+          id="product-${item.id}" 
+          data-name="${item.name}"
+          data-price="${item.price}"
+        >
           <img src="${
             item.url_image || '/image-not-found.png'
           }" class="card-img-top" alt="${item.name}" />
@@ -46,7 +51,7 @@ function showProducts(products) {
               <button
                 type="button"
                 class="btn btn-secondary btn-sm"
-                onclick="addToCart()"
+                onclick="addToCart(${item.id})"
               >
                 <i class="icon bi bi-cart-plus"></i>
               </button>
@@ -114,6 +119,9 @@ form.addEventListener('search', (e) => {
   }
 })
 
-function addToCart() {
-  console.log('added to cart')
+function addToCart(id) {
+  const productItem = document.getElementById(`product-${id}`)
+  console.log(productItem.dataset.name)
+  console.log(productItem.dataset.price)
+  // TODO: modal
 }
