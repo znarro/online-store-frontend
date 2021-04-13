@@ -6,7 +6,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 63px 1fr 60px;
+  grid-template-rows: 70px 1fr 60px;
   grid-template-areas:
     'header'
     'content'
@@ -19,10 +19,13 @@ body {
 }
 
 .brand {
-  color: #fe6712;
+  color: #fff;
+  background-color: #fa9b64;
+  padding: 5px 10px;
+  border-radius: 10px;
   font-weight: 600;
   margin-bottom: 0;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .menu {
@@ -30,7 +33,11 @@ body {
 }
 
 .menu .dropdown {
-  margin-right: 0.5rem;
+  margin-right: 2rem;
+}
+
+.cart-button {
+  margin-left: 2rem;
 }
 
 /* Loader */
@@ -115,4 +122,11 @@ h2.not-found {
   line-height: 60px;
   background-color: hsla(0, 0%, 62%, 0.4);
   text-align: center;
+}
+
+/* Apply border to brand name, if supported by browser */
+@supports (-webkit-text-stroke: 1px black) {
+  .brand {
+    -webkit-text-stroke: 1px black;
+  }
 }

@@ -46,6 +46,7 @@ function showProducts(products) {
               <button
                 type="button"
                 class="btn btn-secondary btn-sm"
+                onclick="addToCart()"
               >
                 <i class="icon bi bi-cart-plus"></i>
               </button>
@@ -112,3 +113,7 @@ form.addEventListener('search', (e) => {
     getProducts(BASE_URL + '/products')
   }
 })
+
+function addToCart() {
+  console.log('added to cart')
+}
