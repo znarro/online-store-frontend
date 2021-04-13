@@ -96,18 +96,18 @@
       <img src="loader.svg" alt="Loading" />
     </div>
 
-    <!-- Modal -->
+    <!-- First modal -->
     <div
       class="modal fade"
       id="cartModal"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="ModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Mis compras</h5>
+            <h5 class="modal-title" id="ModalLabel">Mis compras</h5>
             <button
               type="button"
               class="btn-close"
@@ -116,12 +116,11 @@
             ></button>
           </div>
           <div class="modal-body">
-            <ul id="cart-items">
-              <li class="d-flex justify-content-between mt-3">
-                <span class="h5">TOTAL A PAGAR:</span>
-                <span class="h5" id="bill">0</span>
-              </li>
-            </ul>
+            <ul id="cart-items"></ul>
+            <div class="d-flex justify-content-between mt-3">
+              <span class="h5">TOTAL A PAGAR:</span>
+              <span class="h5" id="bill">0</span>
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -131,7 +130,47 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary">Comprar</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-target="#thanksModal"
+              data-bs-toggle="modal"
+              data-bs-dismiss="modal"
+            >
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second modal dialog -->
+    <div
+      class="modal fade"
+      id="thanksModal"
+      aria-hidden="true"
+      aria-labelledby="ModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body d-flex justify-content-between">
+            <h5 class="h5">¡Gracias por tu compra!</h5>
+            <button
+              type="button"
+              class="btn-close restart"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary restart"
+              data-bs-dismiss="modal"
+            >
+              Volver a comprar
+            </button>
           </div>
         </div>
       </div>

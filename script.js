@@ -6,6 +6,7 @@ const form = document.getElementById('form')
 const loader = document.getElementById('loader')
 const cartBtn = document.getElementById('cart')
 const bill = document.getElementById('bill')
+const restartButtons = document.querySelectorAll('.restart')
 
 // const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com'
 const BASE_URL = 'http://localhost:3000'
@@ -108,20 +109,6 @@ function listCategories(categories) {
   })
 }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-  let { query } = e.target.elements
-  query = query.value.toLowerCase()
-  getProducts(BASE_URL + `/products?q=${query}`)
-})
-
-// To get all products when the user clears the search input
-form.addEventListener('search', (e) => {
-  if (e.target.value === '') {
-    getProducts(BASE_URL + '/products')
-  }
-})
-
 function addToCart(id) {
   const productItem = document.getElementById(`product-${id}`)
   const { name, price } = productItem.dataset
@@ -145,3 +132,25 @@ function formatMoney(amount) {
     currency: 'USD',
   }).format(amount)
 }
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  let { query } = e.target.elements
+  query = query.value.toLowerCase()
+  getProducts(BASE_URL + `/products?q=${query}`)
+})
+
+// To get all products when the user clears the search input
+form.addEventListener('search', (e) => {
+  if (e.target.value === '') {
+    getProducts(BASE_URL + '/products')
+  }
+})
+
+restartButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    cartItemsContainer.innerHTML = ''
+    totalPrice = 0
+    bill.innerHTML = totalPrice
+  })
+})
