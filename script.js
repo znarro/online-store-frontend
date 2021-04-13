@@ -1,14 +1,16 @@
 const productsContainer = document.getElementById('products')
 const categoriesContainer = document.getElementById('categories')
+const cartItemsContainer = document.getElementById('cart-items')
+
 const form = document.getElementById('form')
 const loader = document.getElementById('loader')
 const cartBtn = document.getElementById('cart')
-const cartItemsContainer = document.getElementById('cart-items')
 const bill = document.getElementById('bill')
-let total = 0
 
 // const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com'
 const BASE_URL = 'http://localhost:3000'
+
+let totalPrice = 0
 
 // Initially get all the products
 getProducts(BASE_URL + '/products')
@@ -48,10 +50,7 @@ function showProducts(products) {
           <div class="card-body">
             <h5 class="card-title text-center">${item.name.toUpperCase()}</h5>
             <div class="d-flex justify-content-between align-items-center">
-              <p class="card-text">${new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              }).format(item.price)}</p>
+              <p class="card-text">${formatMoney(item.price)}</p>
               <button
                 type="button"
                 class="btn btn-secondary btn-sm"
@@ -131,11 +130,18 @@ function addToCart(id) {
   cartItem.innerHTML = `
     <li class="d-flex justify-content-between">
       <span>${name}</span>
-      <span>${price}</span>
+      <span>${formatMoney(price)}</span>
     </li>
   `
   cartItemsContainer.prepend(cartItem)
 
-  total += parseFloat(price)
-  bill.innerHTML = total
+  totalPrice += parseFloat(price)
+  bill.innerHTML = formatMoney(totalPrice)
+}
+
+function formatMoney(amount) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(amount)
 }
