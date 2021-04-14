@@ -8,8 +8,7 @@ const cartBtn = document.getElementById('cart')
 const bill = document.getElementById('bill')
 const restartButtons = document.querySelectorAll('.restart')
 
-// const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com'
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://enigmatic-shelf-95625.herokuapp.com'
 
 let totalPrice = 0
 
