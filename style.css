@@ -18,6 +18,10 @@ body {
   grid-area: header;
 }
 
+.header .navbar {
+  background-color: #e3f2fd;
+}
+
 .brand {
   color: #fff;
   background-color: #fa9b64;

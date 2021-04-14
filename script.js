@@ -85,7 +85,7 @@ async function getCategories(url) {
   }
 }
 
-// To create dinamically the dropdown category items
+// To dinamically create dropdown's category items from API data
 function listCategories(categories) {
   const allCategories = document.createElement('li')
   allCategories.innerHTML = `
@@ -114,11 +114,10 @@ function addToCart(id) {
   const { name, price } = productItem.dataset
 
   const cartItem = document.createElement('li')
+  cartItem.classList.add('d-flex', 'justify-content-between')
   cartItem.innerHTML = `
-    <li class="d-flex justify-content-between">
-      <span>${name}</span>
-      <span>${formatMoney(price)}</span>
-    </li>
+    <span>${name}</span>
+    <span>${formatMoney(price)}</span>
   `
   cartItemsContainer.prepend(cartItem)
 
@@ -133,6 +132,7 @@ function formatMoney(amount) {
   }).format(amount)
 }
 
+// Search product by name
 form.addEventListener('submit', (e) => {
   e.preventDefault()
   let { query } = e.target.elements
@@ -140,13 +140,14 @@ form.addEventListener('submit', (e) => {
   getProducts(BASE_URL + `/products?q=${query}`)
 })
 
-// To get all products when the user clears the search input
+// Get all products when user clears the search input
 form.addEventListener('search', (e) => {
   if (e.target.value === '') {
     getProducts(BASE_URL + '/products')
   }
 })
 
+// Reset cart items and total amount
 restartButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     cartItemsContainer.innerHTML = ''
